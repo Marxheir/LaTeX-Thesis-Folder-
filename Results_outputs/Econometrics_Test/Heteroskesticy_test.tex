@@ -1,0 +1,19 @@
+\begin{table}[H]
+    \centering
+    \caption{Breusch-Pagan Test Results for Heteroskedasticity}
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Model} & \textbf{BP Statistic} & \textbf{df} & \textbf{P-value} \\
+        \midrule
+        Reproductive Health & 169.2 & 13 & $< 2.2 \times 10^{-16}$ \\
+        HSCR (Health, Safety, and Child Rights) & 55.348 & 13 & $3.51 \times 10^{-07}$ \\
+        Environmental Health & 84.453 & 13 & $1.591 \times 10^{-12}$ \\
+        Mental Health & 67.146 & 13 & $2.68 \times 10^{-09}$ \\
+        Infectious Disease & 35.373 & 13 & 0.000742 \\
+        Nutritional Health & 38.087 & 13 & 0.0002793 \\
+        \bottomrule
+    \end{tabular}
+    \vspace{0.5em} % Add some space before the note
+    \caption*{Note: The null hypothesis assumes homoskedasticity, and a low P-value suggests rejection of the null hypothesis, indicating the presence of heteroskedasticity in the model residuals.}
+    \label{Tab::Heteroskedict}
+\end{table}

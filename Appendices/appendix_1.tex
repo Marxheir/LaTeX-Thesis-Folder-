@@ -1,0 +1,225 @@
+\appendix
+\section*{Appendix Section}
+\addcontentsline{toc}{section}{APPENDIX}
+
+%\setcounter{figure}{0} % Reset figure counter
+%\setcounter{table}{0}  % Reset table counter
+
+\subsection*{Appendix A.1: OECD Classification Methods of ODA}
+\addcontentsline{toc}{subsection}{Appendix A.1: OECD Classification Methods of ODA}
+
+\begin{figure}[ht]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{General DAC system of ODA Classification}
+    \centering{\includegraphics[width = 0.8\textwidth, height = 8cm]{Appendices/ODA classification system/Classifications system of ODA.pdf}}
+    \label{fig:General ODA classification}
+    \caption*{\footnotesize{Author's illustration, adapted from \textcite{oecd_Data_2023}. Image used to show the different levels of classification used at the OECD for compiling ODA data.}}
+\end{figure}
+
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{OECD ODA Sectors Classification}
+    \centering{\includegraphics[width = 0.75\textwidth, height  = 9cm]{Appendices/ODA classification system/ODA and Health flows.pdf}}
+    \label{fig:Sector ODA classification}
+    \caption*{\footnotesize{Author's illustration, adapted from \textcite{oecd_Data_2023}. Image used to justify the use of total ODA value, as opposed to health ODA, due to overlaps in the sector classification.}}
+\end{figure}
+
+
+%\begin{landscape}
+\input{Appendices/SDG_Hlth_Inds}
+%\end{landscape}
+
+
+
+
+\subsection*{Appendix B: Preliminary Statistical Analysis}
+\addcontentsline{toc}{subsection}{Appendix B: Preliminary Statistical Analysis}
+
+
+\subsubsection*{Appendix B.1: Health Outcome Dimensions' Procedure}
+\addcontentsline{toc}{subsubsection}{Appendix B.1: Health Outcome Dimensions' Procedure}
+
+\paragraph{} All SDG 3 on health and 2.3 on nutrition indicators were harmonized, totaling 45 indicators from \textcite{unsdg_sustainable_2023}. Indicator data were extracted from both \textcite{unsdg_sustainable_2023, wdi_world_2023}. Note that the choice of the database is based on data availability and lower missing values.
+
+
+
+\textbf{Step 2: Data Reduction and Dimension Classification:} Upon extraction of relevant indicators from the databases, high missing indicators (94\% missing values) were dropped to avoid biased estimates. Secondly, some indicators are highly correlated and subsequently removed. The step 2 leaves us with 39 indicators. Furthermore, the remaining indicators (39) were classified into 7 dimensions, listed in Appendix 10, based on the author's theoretical understanding (Supervisors approval awaiting). 
+
+\textbf{Step 3: Creating Indices for Health Dimension:} Since all the indicators are in various scales of measurement, it is necessary to bring them down to comparable levels for convergence. Statisticians ensure this using two popular methods: Normalization, otherwise called min-max transformation, and standardization, otherwise called z-score transformation \parencite{bhandari2023feature}. Normalization or min-max technique re-scales value to within a specific boundary, usually 0 to 1, using the logic below: $$ X' = \frac{X - X_{min}}{X_{max} - X_{min}} $$
+Standardization on the other, re-scales vector around the mean of zero and standard deviation (variance) of 1. This method is, otherwise called z-score, because the transformation method uses z-statistic to generate the newer values of $X$ as shown below: 
+$$ X' = \frac{X - \mu_{X}}{\sigma_{X}} $$
+The latter method is preferred since it does not impose a boundary of the granularity of the value of $X$.
+Using the z-score method, the resulting composite index in a panel data (Row mean) is: $$\bar{X'_{it}} = \frac{1}{n} \sum_{i=1}^{n} X'_{it}$$
+where $n = 1, 2, 3...z$ is the number of indicators for the index, $i$ unit or entity and $t$ time or year of observation. 
+\begin{table}[H]
+    \centering
+ Example of dimension computation (mental health dimension)
+    \begin{tabular}{ccccccc}
+        \toprule
+        Country & Year & Suicide (per 100,000) & Alcohol (per cap) & Tobacco Incidence (\% Age $\geq$ 15) \\
+        \midrule
+        AFG & 2001 & 4.5 & 1.3 & 7 \\
+        AFG & 2002 & 2.3 & 2.6 & 6 \\
+        ZWE & 2001 & 5.2 & 5.7 & 4 \\
+        \midrule
+        & & $\mu$ = 4, $\sigma$ = 1.51 & $\mu$ = 3.2, $\sigma$ = 2.26 & $\mu$ = 5.6, $\sigma$ = 1.53 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+Mental health index for AFG ($i$) at $t$ 2001 = suicide + alcohol + tobacco: 
+\[
+\frac{{\left(\frac{{4.5 - 4}}{{1.51}}\right) + \left(\frac{{1.3 - 3.2}}{{2.26}}\right) + \left(\frac{{1 - 5.6}}{{1.53}}\right)}}{3} = -1.05345
+\]
+
+\begin{landscape}
+%\subsubsection*{Appendix B.2: Country-level Analysis of ODA Against Health Outcome Dimensions}
+\addcontentsline{toc}{subsubsection}{Appendix B.2: Country-level Analysis of Health Outcome Dimensions}
+\begin{figure}[ht]
+\textbf{Appendix B.2: Country-level Scaterplots of Health Dimensions}\\
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{\textit{Composite Health Dimensions Across Regions of Developing Countries}}
+    \centering \includegraphics[width = 1.5\textwidth]{Figures/Health_Outcome_Graph/Combined_scatplot.pdf}
+    \caption*{\footnotesize{Note. Reproductive health risk and mortality index comprises four indicators: maternal, under-5 child and neonatal mortality, and adolescent pregnancy incidence (10 to 19 years) access across the regions of interest. Author's computation, data from \textcite{unsdg_sustainable_2023, wdi_world_2023}}}
+    \label{fig:combined_scat_plot}
+\end{figure}
+\end{landscape}
+
+\subsubsection*{Appendix B.3: ODA Distribution}
+
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{\textit{Global Highest Net ODA Recipients}}
+    \centering \includegraphics[width = 0.7\textwidth]{Figures/ODA_Graphs/Top_10_ODA_recps.pdf}
+    \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023}. Values are the average net ODA (2021 constant price) received between  1990 - 2021.}}
+    \label{fig:ODA highest recipient}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\caption{\textit{Aid Dependency at Country Level}}
+    \centering \includegraphics[width = 0.8\textwidth]{Figures/ODA_Graphs/ODA_GNI_scatPlot.pdf}
+    \caption*{\footnotesize{Note. As mentioned above, there are outliers, with y-axis going up to 200\% as the dependency rate, showing the necessity for introducing log transformation applied in Fig \ref{fig:ODA Dependency by region}. Appropriate approaches will be introduced in later analysis. Percentage is the author's computation, with Net ODA at 2021 and GNI at 2015 constant price. Data from both \textcite{oecd_Data_2023, wdi_world_2023}}}
+    \label{fig:aid dependency}
+\end{figure}
+
+
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{\textit{Relationship Between Social Infrastructure ODA and Various Health Dimensions}}
+    \centering \includegraphics[width = 0.8\textwidth, height = 8cm]{Figures/ODA_against_Hth/Soc_ODA_Hth_plt.pdf}
+    \label{fig:Social Infrastructure scatterplt}
+    \caption*{\footnotesize{Note: Author's computation, data from \textcite{unsdg_sustainable_2023, wdi_world_2023}}}
+\end{figure}
+
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Country Level Intensity of Reproductive Risk and Mortality}
+%    \centering{\includegraphics[width = 0.9\textwidth, height  = 7cm]{Figures/Health_Outcome_Graph/Reprod_Risks_scatPlot.pdf}}
+ %   \label{fig:Reprod country scatplt}
+  %  \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Country Level Mental Health Dimension}
+ %   \centering{\includegraphics[width = 0.9\textwidth, height  = 7cm]{Figures/Health_Outcome_Graph/Mental_Hth_scatPlot.pdf}}
+  %  \label{fig:Mental country scatplt}
+   % \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Burden of Infections and Diseases at Country Level}
+ %   \centering{\includegraphics[width = 0.9\textwidth, height  = 7cm]{Figures/Health_Outcome_Graph/Burd_Infs_scatPlot.pdf}}
+  %  \label{fig:Infection country scatplt}
+   % \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Malnutrition Intensity at Country Level}
+ %   \centering{\includegraphics[width = 0.8\textwidth]{Figures/Health_Outcome_Graph/Malnutrition_scatPlot.pdf}}
+  %  \label{fig:Malnutrition country scatplt}
+   % \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Environmental Death at Country Level}
+ %   \centering{\includegraphics[width = 0.9\textwidth, height  = 7cm]{Figures/Health_Outcome_Graph/Env_death_scatPlot.pdf}}
+  %  \label{fig:Env_death country scatplt}
+   % \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+
+
+%\begin{figure}[ht]
+%\captionsetup{justification=justified,singlelinecheck=false}
+%\caption{Health System Capacity and Responsiveness at Country Level}
+%    \centering{\includegraphics[width = 0.9\textwidth, height  = 7cm]{Figures/Health_Outcome_Graph/HSCR_scatPlot.pdf}}
+ %   \label{fig:HSCR country scatplt}
+ %   \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+%\end{figure}
+
+%%%%%%% Statical Tests of 
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{Correlation between ODA and Health Dimensions}
+    \centering{\includegraphics[width = 0.8\textwidth]{Figures/Health_Outcome_Graph/ODA_Hlth.pdf}}
+    \label{fig:preliminary stat pair panels}
+    \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+\label{Fig::Health_dimensions_correlation}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{Correlation between ODA and Health Dimensions}
+    \centering{\includegraphics[width = 0.75\textwidth]{Results_outputs/Econometrics_Test/Multicolinearity_cor_graph.png}}
+    \label{fig:Correlation_Matrix_Graph}
+    \caption*{\footnotesize{Author's computation, data from \textcite{oecd_Data_2023, unsdg_sustainable_2023, wdi_world_2023}.}}
+\end{figure}
+
+
+\begin{figure}[H]
+
+\caption{\textit{Social Infrastructure ODA and Social Protection Coverage}}
+    \centering \includegraphics[width = 0.8\textwidth]{Figures/ODA_against_Hth/Soc_Prot_SocInfrODA_plt.pdf}
+    \label{Fig::Social_Prot_Social_InfrastructureODA}
+\end{figure}
+
+\begin{figure}[H]
+\captionsetup{justification=justified,singlelinecheck=false}
+\caption{\textit{Total Net ODA and Social Protection Coverage}}
+   \centering \includegraphics[width = 0.8\textwidth]{Figures/ODA_against_Hth/Soc_Prot_aid_Per_GNI_plt.pdf}
+   \label{Fig::Social_Prot_Total_ODA}
+\end{figure}
+
+
+
+\subsection*{Appendix C.1: \quad Econometric Tests}
+\addcontentsline{toc}{subsection}{Appendix C.1: Econometric Tests}
+\input{Results_outputs/Stats_summary}
+\input{Results_outputs/Econometrics_Test/VIF}
+\input{Results_outputs/Econometrics_Test/UnitFE_Test}
+\input{Results_outputs/Econometrics_Test/Time_Effect_tests}
+\input{Results_outputs/Econometrics_Test/Heteroskesticy_test}
+%\input{Results_outputs/Econometrics_Test/Cross_sectional_depen}
+\input{Results_outputs/Econometrics_Test/Serial_correlation}
+
+
+%\input{Results_outputs/Econometrics_Test/Panel_test}
+%\input{Results_outputs/Econometrics_Test/Heteroskesticy_test}
+
+ 
+
+%\newpage
+\subsection*{Appendix D: List of Countries and Respective Regions}
+\addcontentsline{toc}{subsection}{Appendix D: List of Countries and Respective Regions}
+
+\input{Appendices/Countries_list}

@@ -1,0 +1,200 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[12pt]{article}
+\usepackage{setspace}  % Add this line to use the setspace package
+\usepackage{times} % For time new roman font style
+% Packages
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{eso-pic}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+
+% Load necessary packages
+
+\usepackage{setspace}
+\usepackage{sectsty}
+\usepackage{enumerate}
+% \usepackage{ragged2e}
+\usepackage{afterpage} %% For longtable forcing on a particular page 
+
+%\usepackage{microtype}
+%\usepackage[none]{hyphenat} % To remove automatic words breaks due to justify alignment
+
+\usepackage{circuitikz}
+\usepackage{tikz}
+
+\usepackage{csvsimple}
+\usepackage{siunitx} %% My regression reult with model summary
+
+\usepackage{longtable}
+\usepackage{tabularx}
+%\usepackage{ltablex}
+\usepackage{pdflscape}
+\usepackage{subcaption} % Combining Tables
+\usepackage{booktabs} %%% For table formatting
+%\usepackage{multirow} % Not useful. Dont like it 
+\usepackage{array}  % <-- Include the array package
+\usepackage{caption} % For Caption
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%%% Landscape pages 
+%\usepackage{lscape}
+%\usepackage{pdflscape}
+\usepackage{rotating}
+
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{microtype} % to prevent hyphenated words 
+
+\usepackage{sectsty}
+\allsectionsfont{\normalsize}
+%\usepackage[rm,tiny]{titlesec}
+%in the preamble
+%--------------------------------
+\usepackage[hidelinks]{hyperref}  % Add the hyperref package with hidelinks option
+
+\usepackage[backend=biber, style=apa, sorting = nyt]{biblatex}
+\addbibresource{Reference.bib}
+% Header and Footer
+\pagestyle{fancy}
+\fancyhf{}
+
+%\fancyhead[R]{\rule{\textwidth}{1pt}} % Horizontal line under the logo
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%\fancyhead[L]{\includegraphics[height=1.5cm]{Figures/HBRS.png}} % Add your university logo
+% Define a custom color
+%\definecolor{myblue}{RGB}{0,0,128}
+
+
+% Set font size to 12pt for the document
+%\renewcommand{\normalsize}{\fontsize{12}{15}\selectfont}
+
+
+% Customize section and subsection headings
+\sectionfont{\fontsize{16}{16}\selectfont\bfseries} % Section headings: 14pt bold
+\subsectionfont{\fontsize{13}{15}\selectfont\bfseries} % Subsection headings: 13pt bold
+
+
+
+\pagestyle{fancy}
+\fancyhf{} % Clear header and footer settings
+\rfoot{\thepage} % Right-aligned page number
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\footrulewidth}{0.4pt} % Footer line thickness
+\renewcommand{\footnoterule}{\hrule width\textwidth} % Full-width footer line
+
+
+
+
+%https://www.researchgate.net/post/What_assumptions_need_to_be_tested_before_performing_a_fixed_effect_regression_on_panel_data
+% Interpretation and identification of within-unit and cross-sectional variation in panel data model Jonathan Kropko ,Robert Kubinec  
+
+% Preliminary pages with Roman numerals
+\pagenumbering{roman}
+
+
+\tolerance = 1
+\emergencystretch = \maxdimen
+\hyphenpenalty = 10000
+\hbadness = 10000
+
+
+%{\tiny \scriptsize \footnotesize \small \normalsize \large \Large \LARGE \huge \Huge} For different font size
+
+\begin{document}
+
+
+
+% Your document content goes here
+
+
+
+
+%--------------------------------
+
+%\onehalfspacing % Set 1.5 line spacing
+
+% Preliminary Pages
+
+    
+\include{Preliminary Pages/Front_Page}
+
+\begin{onehalfspace}
+
+
+\include{Preliminary Pages/OAT_Page}
+
+
+
+
+\include{Preliminary Pages/Acknowledgement}
+\include{Preliminary Pages/Table of Contents}
+\include{Preliminary Pages/List of Figures}
+\include{Preliminary Pages/List of Tables}
+\include{Preliminary Pages/Abstract}
+
+
+\end{onehalfspace}
+% Your content goes here
+
+
+
+
+%\begin{onehalfspace}  % Use the onehalfspace environment 
+
+
+%\begin{doublespace}  % Use the doublespace environment for double line spacing
+
+% Switch to Arabic page numbering for main content
+\clearpage
+\pagenumbering{arabic}
+
+%{\justify
+
+\begin{onehalfspace}
+    
+% Chapters and Sections
+% Note that you can not nest include function, but you can use input in the included document
+\include{Thesis Chapters/Chapter_one}
+\include{Thesis Chapters/Chapter_two}
+\include{Thesis Chapters/Chapter_three}
+\include{Thesis Chapters/Chapter_four}
+\include{Thesis Chapters/Chapter_five}
+\include{Thesis Chapters/Chapter_six}
+
+\end{onehalfspace}  % Use the onehalfspace environment 
+
+%\end{doublespace}
+
+\clearpage
+\pagenumbering{roman}
+
+% Include other chapters as needed
+
+\newpage
+% Appendices
+\appendix
+\include{Appendices/appendix_1}
+
+% Include other appendices as needed
+\newpage
+% Bibliography
+
+\printbibliography
+\addcontentsline{toc}{section}{REFERENCES}
+%https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html
+%https://mpra.ub.uni-muenchen.de/62350/1/MPRA_paper_62350.pdf
+%https://journals.sagepub.com/doi/full/10.1177/2378023117710578
+\end{document}
+
+

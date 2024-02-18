@@ -1,0 +1,20 @@
+\begin{table}[H]
+    \centering
+    \caption{BreuschGodfrey/Wooldridge Test for Serial Correlation in Panel}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Model} & \textbf{Serial Correlation}  \\
+        \midrule
+        Reproductive Health & $\chi^2 = 104.2, df = 4, p-value < 2.2e-16$  \\
+        HSCR  & $ \chi^2 = 90.509, df = 4, p-value < 2.2e-16$ \\
+        Environmental Death & $\chi^2 = 104.79, df = 4, p-value < 2.2e-16 $ \\
+        Mental Health & $\chi^2 = 101.38, df = 4, p-value < 2.2e-16 $\\
+        Infection and Disease & $\chi^2 = 128.29, df = 4, p-value < 2.2e-16$  \\
+        Malnutrition & $\chi^2 = 119.56, df = 4, p-value < 2.2e-16$  \\
+        \bottomrule
+    \end{tabular}
+    \vspace{0.5em} % Add some space before the note
+    \caption*{Note: The null hypothesis, p $>$ 5\%, assumes no time-varying common shock effect. Since the p-value $>$ 5\% for all models, except the mental problem, we fail to reject the null hypothesis, thus, no time effect.}
+    \label{Tab::Serial_corr_Test}
+\end{table}
+

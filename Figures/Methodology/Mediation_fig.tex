@@ -1,0 +1,26 @@
+\begin{figure}[!ht]
+\centering
+\caption{Figure 4: Mediation Path analysis}
+\resizebox{0.5\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\normalsize] % Adjust font size here
+
+\draw (7.5,17) ellipse (1cm and 0.5cm) node {\normalsize ODA};
+\draw (11.5,17) ellipse (1cm and 0.5cm) node {\normalsize HO};
+\draw [->] (8.5,17) -- (10.5,17);
+\node at (9.5,17.25) {c'};
+
+\draw (9.5,19.5) ellipse (0.75cm and 0.5cm) node {\normalsize SP};
+\draw [->] (7.75,17.5) -- (9.25,19);
+\draw [->] (9.75,19) -- (11,17.5);
+\node at (8.05,18.55) {a};
+\node at (11.05,18.25) {b};
+
+\draw [, dashed] (11.75,21.25) circle (0.5cm) node {\Large $\epsilon_1$};
+\draw [, dashed] (14.5,18.25) circle (0.5cm) node {\Large $\epsilon_2$};
+\draw [-Stealth, dashed] (11.25,20.75) -- (10.25,19.75);
+\draw [-Stealth, dashed] (14,18) -- (12.5,17.25);
+\end{circuitikz}
+}%
+\label{DAG-mediation}
+\end{figure}
